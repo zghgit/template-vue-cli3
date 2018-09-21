@@ -23,6 +23,7 @@
     "axios": "^0.18.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "mockjs": "^1.0.1-beta3",
     "stylelint-config-standard": "^18.2.0",
     "vue-cli-plugin-axios": "0.0.4",
     "vue-template-compiler": "^2.5.17"

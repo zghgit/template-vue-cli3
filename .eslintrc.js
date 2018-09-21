@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/essential',
+    // 'plugin:vue/strongly-recommended',
     '@vue/airbnb',
   ],
   rules: {
@@ -14,6 +15,18 @@ module.exports = {
     'quotes': [2, 'single'],  // 引号，单引号
     'no-extra-semi': 2, // 禁止不必要的分号
     'space-before-function-paren': [2, 'never'],  //禁止函数圆括号之前有一个空格
+    'arrow-parens': [2, 'as-needed'],
+    'quote-props': [2, 'consistent'],
+    'comma-dangle': ['error', 'only-multiline'],
+    'object-curly-spacing': ['error', 'never'],
+    'vue/html-indent': ['error', 4, {
+      'attribute': 1,
+      'closeBracket': 0,
+      'alignAttributesVertically': true,
+      'ignores': []
+    }],
+    'vue/mustache-interpolation-spacing': [2, 'always'|'never'],
+    'vue/v-bind-style': [2, 'shorthand'],
 
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',

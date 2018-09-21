@@ -3,4 +3,5 @@
 /dist/
 /node_modules/
 /src/plugins/
+/mock/
 /*.js

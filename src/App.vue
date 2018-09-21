@@ -1,14 +1,16 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <div id="nav">
+            <router-link to="/">Home</router-link> |
+            <router-link to="/about">About</router-link>
+        </div>
+        <router-view/>
     </div>
-    <router-view/>
-  </div>
 </template>
 
 <style lang="less">
+@import './assets/style/main.less';
+
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     text-align: center;
