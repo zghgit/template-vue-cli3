@@ -19,6 +19,8 @@ module.exports = {
     'quote-props': [2, 'consistent'],
     'comma-dangle': ['error', 'only-multiline'],
     'object-curly-spacing': ['error', 'never'],
+    'no-param-reassign': 0,   // 可以修改函数参数
+    'no-restricted-globals': 0,
     'vue/html-indent': ['error', 4, {
       'attribute': 1,
       'closeBracket': 0,

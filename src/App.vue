@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" class="a">
         <div id="nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link>
@@ -7,6 +7,16 @@
         <router-view/>
     </div>
 </template>
+
+<script>
+import $ from 'jquery'; // eslint-disable-line
+
+export default {
+    mounted() {
+        console.log($);
+    }
+};
+</script>
 
 <style lang="less">
 @import './assets/style/main.less';
