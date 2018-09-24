@@ -10,6 +10,9 @@
 
 <script>
 import $ from 'jquery'; // eslint-disable-line
+import utils from '@/utils/utils';
+
+utils.autoRootSize();
 
 export default {
     mounted() {
