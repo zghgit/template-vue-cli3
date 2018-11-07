@@ -4,7 +4,9 @@ const config = {
     debug: true
 };
 
-function log(s) { return !config.debug || console.log(s); }
+function log(s) {
+    return !config.debug || console.log(s);
+}
 
 function setRootSize() {
     $(() => {
