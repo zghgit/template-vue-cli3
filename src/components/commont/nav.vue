@@ -1,14 +1,13 @@
 <!--系统管理-角色权限-->
 <template>
     <nav class="nav">
+      <div class="menu-logo">
+            <img src="../../assets/img/usr/hide.jpg" alt="菜单展开" class="logo-open">
+        </div>
         <ul class="nav-top">
-            <li v-on:click="toggleMenu()">222
-                <i v-bind:class="navIcon"></i>
-            </li>
-            <li>
-                <a v-on:click="goBack()">111
-                    <i v-bind:class="backIcon"></i>
-                </a>
+            <li v-on:click="toggleMenu()">
+                <i v-if="navIcons" v-bind:class="navIcon"></i>
+                <i v-else v-bind:class="backIcon"></i>
             </li>
             <li>当前位置 : {{back}}</li>
         </ul>
@@ -16,8 +15,8 @@
         <div class="nav-role" v-on:mouseenter="showRole()"
              v-on:mouseleave="hideRole()">
             <div>
-                <!-- <img src="../../assets/img/user.png" alt="管理员"> -->
-                <span>{{role}}：&nbsp</span>
+                <img src="../../assets/img/usr/user.png" alt="管理员">
+                <span>{{role}}：</span>
                 <span>{{roleName}}</span>
                 <i v-bind:class="[roleDown, {'roleUp':isShowRole}]"></i>
             </div>
@@ -34,11 +33,20 @@
 </template>
 <script>
 export default {
+  name: "nav",
+  // 父传子！
+  props: {
+    // NewIsMen: {
+    //   type: boolean,
+    //   required: false
+    // }
+  },
   data() {
     return {
       href: "SpaceDetail",
-      navIcon: "ivu-icon ivu-icon-navicon-round",
-      backIcon: "ivu-icon ivu-icon-chevron-left",
+      navIcons: false,
+      navIcon: "el-icon-d-arrow-right",
+      backIcon: "el-icon-d-arrow-left", //
       back: "下一级菜单",
       role: "系统管理员",
       isShowRole: false,
@@ -73,10 +81,8 @@ export default {
   },
   methods: {
     toggleMenu() {
-      console.log("菜单收缩，菜单展开");
-    },
-    goBack() {
-      console.log("上一页，下一页");
+      this.navIcons = !this.navIcons;
+      this.$emit("isMenuEvent", this.navIcons);
     },
     showRole() {
       this.isShowRole = true;
@@ -89,29 +95,48 @@ export default {
 </script>
 <style lang="less" scoped>
 .nav {
-  width: calc(100% - 200px);
+  // width: calc(100% - 200px);
+  width: 100%;
   height: 56px;
-  background: #fff;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.0470588);
+  background-color: rgba(27, 43, 78);
+  // box-shadow: 0 2px 2px rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.03);
   position: fixed;
   top: 0;
-  margin-left: 200px;
+  // margin-left: 200px;
   transition: all 0.1s;
   z-index: 9999;
+  > .menu-logo {
+    // width: 100%;
+    // height: 86px;
+    // text-align: center;
+    // line-height: 86px;
+    float: left;
+    margin: 0 70px;
+    > .logo-open {
+      transition: all 0.1s;
+      height: 56px;
+      // padding-top: 20px;
+    }
+    > .logo-hide {
+      display: none;
+      margin-left: -6px;
+    }
+  }
   > ul {
     height: 100%;
     float: left;
     list-style: none;
-    padding: 0;
-    margin-bottom: 0;
     display: flex;
     align-items: center;
     > li {
       line-height: 56px;
       float: left;
-      color: rgba(0, 0, 0, 0.75);
-      font-size: 16px;
-      font-weight: 700;
+      color: rgb(174, 192, 230);
+      font-size: 14px;
+      // font-weight: 700;
       padding-right: 14px;
       display: flex;
       align-items: center;
@@ -126,7 +151,7 @@ export default {
         width: 15px;
         text-align: center;
         display: block;
-        color: #333;
+        color: rgb(174, 192, 230);
         cursor: pointer;
         > .ivu-icon {
           font-size: 15px;
@@ -140,18 +165,21 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
     > div {
       margin-top: 6px;
       padding: 6px;
-      border: 1px solid #f0f0f8;
+      border: 1px solid rgba(255, 255, 255, 0.0470588);
       display: flex;
       align-items: center;
       > img {
         height: 30px;
+        margin-right: 5px;
       }
       > span {
         font-size: 14px;
-        color: black;
+        // color: rgb(115, 121, 136);
+        color: #e9ebf1f0;
       }
       > i {
         transition: all 0.1s;
@@ -184,7 +212,7 @@ export default {
         background-color: #e5e5e5;
       }
       > li {
-        background: #fff;
+        background-color: rgba(27, 43, 78);
         padding: 0 15px;
         > a {
           height: 40px;
@@ -197,7 +225,7 @@ export default {
             color: #00a9e8;
           }
           > i {
-            color: #333;
+            color: rgba(214, 214, 253, 0.96);
             margin-right: 5px;
             width: 18px;
             height: 18px;
@@ -205,7 +233,7 @@ export default {
             line-height: 18px;
           }
           > span {
-            color: #333;
+            color: rgba(214, 214, 253, 0.96);
             font-size: 14px;
           }
           &:hover {
@@ -215,7 +243,7 @@ export default {
           }
         }
         &:hover {
-          background: #f5f5f5;
+          background-color: rgba(27, 43, 78);
         }
         &:hover span {
           color: #00a9e8;

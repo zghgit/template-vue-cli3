@@ -7,9 +7,8 @@ module.exports = {
         // before(app) {
         //     mock(app);
         // }
-        proxy: 'http://localhost:8081'
+        proxy: 'http://localhost:8082'
     },
-
     pluginOptions: {
         lintStyleOnBuild: false,
         stylelint: {

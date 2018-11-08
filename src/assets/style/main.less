@@ -7,16 +7,31 @@
 html, body {
     width: 100%;
     height: 100%;
+    font-size: 14px;
 }
 
 body {
     font-size: @g-fontSize;
-    background-color: @g-backgroundColor;
+    // background-color: @g-backgroundColor;
+    background-color: rgb(27, 43, 78) !important;
     color: @g-color;
 
     &.lock {
         overflow: hidden;
     }
 }
+#app {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    height: 100%;
+    background-color: rgb(27, 43, 78);
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+// 清除浮动
 
 // ------------------------------------框架-----------------------------------------

@@ -1,10 +1,6 @@
 <!--菜单列表-->
 <template>
     <aside class="demo-menu-list">
-        <div class="menu-logo">
-            <!-- <img src="../../assets/img/open.jpg" alt="菜单展开" class="logo-open">
-            <img src="" alt="菜单缩小" class="logo-hide"> -->
-        </div>
         <ul>
             <li v-for="(menuObj,index) in demoMenuList">
                 <span @click="submenu(menuObj,index)">
@@ -16,7 +12,7 @@
                     </router-link>
                 </span>
                 <ul v-bind:class="{'isHides':menuObj.isShow, 'childFirst':!menuObj.isShow}">
-                    <li v-for="(menuSecond, index) in menuObj.submenu" v-if="">
+                    <li v-for="(menuSecond, index) in menuObj.submenu">
                         <router-link
                             :to="menuSecond.href"
                             v-bind:class="{'active':menuSecond.isShow}">{{menuSecond.content}}
@@ -55,27 +51,17 @@ export default {
 <style lang="less" scoped>
 .demo-menu-list {
   position: fixed;
-  top: 0;
+  top: 76px;
   width: 200px;
   height: 100%;
-  background: #424f63;
+  box-sizing: border-box;
+  box-shadow: none;
+  // border-color: rgb(27, 43, 78);
+  // background: #424f63;
+  // background-color: rgba(27, 43, 78, 0.85098);
+  border-right: 1px solid rgba(255, 255, 255, 0.0470588);
+  background-color: rgba(27, 43, 78);
   z-index: 1;
-  > .menu-logo {
-    width: 100%;
-    height: 86px;
-    text-align: center;
-    line-height: 86px;
-
-    > .logo-open {
-      transition: all 0.1s;
-      height: 56px;
-      padding-top: 20px;
-    }
-    > .logo-hide {
-      display: none;
-      margin-left: -6px;
-    }
-  }
   > ul {
     width: 100%;
     font-size: 14px;
@@ -86,7 +72,7 @@ export default {
       a {
         padding: 8px 10px;
         line-height: 18px;
-        color: #fff;
+        color: rgb(174, 192, 230);
         display: block;
         transition: background-color 0.4s;
         > i {
@@ -111,12 +97,14 @@ export default {
           }
         }
         &:hover {
-          color: #fff;
-          background-color: #202c37;
+          color: rgb(174, 192, 230);
+          // background-color: #202c37;
+          background-color: #03171f4f;
         }
         &.active {
-          color: #fff;
-          background-color: #00a9e8;
+          color: rgb(174, 192, 230);
+          // background-color: #00a9e8;
+          background-color: #03171f4f;
         }
       }
       > .isHides {
@@ -124,13 +112,14 @@ export default {
         list-style: none;
       }
       > .childFirst {
+        background-color: rgba(10, 20, 41, 0.952941);
         list-style: none;
         padding-left: 0;
         > li {
           > a {
             padding: 10px 0 10px 56px;
             &.actived {
-              color: #fff;
+              color: rgb(174, 192, 230);
               background: #202c37;
             }
           }
